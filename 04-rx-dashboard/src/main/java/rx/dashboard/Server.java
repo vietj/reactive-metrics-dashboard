@@ -6,7 +6,6 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.bridge.PermittedOptions;
 import io.vertx.ext.web.handler.sockjs.BridgeOptions;
 import io.vertx.reactivex.core.AbstractVerticle;
-import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.core.eventbus.Message;
 import io.vertx.reactivex.ext.web.Router;
 import io.vertx.reactivex.ext.web.handler.StaticHandler;
@@ -62,7 +61,7 @@ public class Server extends AbstractVerticle {
 
 
     vertx.createHttpServer()
-      .requestHandler(router::accept)
+      .requestHandler(router)
       .listen(8080);
   }
 }
